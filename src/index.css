@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --color-zinc-900: #18181b;
+  --color-zinc-950: #09090b;
+}
+
+@layer base {
+  html {
+    @apply antialiased scroll-smooth;
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  body {
+    @apply m-0 p-0 font-sans text-white bg-black;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-zinc-900/30 backdrop-blur-xl border border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+  }
+
+  .premium-gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60;
+  }
+}
+
+/* Lenis Scroll Base Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+
